@@ -4,4 +4,5 @@
 
 ### Modélisation de la bdd
 
-<img width="906" alt="Capture d’écran 2022-07-15 à 00 18 39" src="https://user-images.githubusercontent.com/72305375/179116125-83df01c6-1a5d-4bdd-b50a-ff947f9b422e.png">
+
+<img width="706" alt="Capture d’écran 2022-07-17 à 19 21 21" src="https://user-images.githubusercontent.com/72305375/179420972-48363be0-73c7-46ee-bebf-b58cb0760fa6.png">
