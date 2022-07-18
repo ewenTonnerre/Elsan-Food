@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('dish', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('photo');
+            $table->string('name', 100);
+            $table->string('photo', 255);
             $table->mediumText('description');
             $table->double('price', 5, 2);
             $table->unsignedBigInteger('restaurantId');

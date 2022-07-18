@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
+            $table->dateTime('date');
             $table->double('amount',6,2);
             $table->unsignedBigInteger('restaurantId');
             $table->unsignedBigInteger('userId');

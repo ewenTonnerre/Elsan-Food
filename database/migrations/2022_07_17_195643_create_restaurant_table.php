@@ -16,12 +16,12 @@ return new class extends Migration
         if(!Schema::hasTable('restaurant')){
             Schema::create('restaurant', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
-                $table->string('address');
+                $table->string('name', 100);
+                $table->string('address', 255);
                 $table->double('latitude', 20, 18);
                 $table->double('longitude', 20, 18);
                 $table->double('rating', 2, 1);
-                $table->string('photo');
+                $table->string('photo', 255);
                 $table->mediumText('description');
                 $table->unsignedBigInteger('categoryId');
                 $table->foreign('categoryId')->references('id')->on('category');
