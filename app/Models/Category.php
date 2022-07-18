@@ -10,6 +10,14 @@ class Category extends Model
     use HasFactory;
 
     /**
+     * Get the restaurants for this category.
+     */
+    public function restaurants()
+    {
+        return $this->hasMany(Restaurant::class);
+    }
+
+    /**
      * The table associated with the model.
      *
      * @var string
