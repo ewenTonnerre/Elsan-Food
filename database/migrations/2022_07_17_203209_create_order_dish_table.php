@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('dishId');
             $table->foreign('orderId')->references('id')->on('order');
             $table->foreign('dishId')->references('id')->on('dish');
+            $table->primary(array('orderId', 'dishId'));
             $table->timestamps();
         });
     }

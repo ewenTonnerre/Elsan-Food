@@ -9,7 +9,6 @@ class OrderDish extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = ['orderId', 'dishId'];
     public $incrementing = false;
 
     /**

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('dish', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
+            $table->string('name', 255);
             $table->text('photo');
             $table->text('description');
             $table->unsignedDecimal('price', 5, 2);

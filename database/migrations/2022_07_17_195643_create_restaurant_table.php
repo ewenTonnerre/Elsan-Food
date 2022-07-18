@@ -13,21 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('restaurant')){
-            Schema::create('restaurant', function (Blueprint $table) {
-                $table->id();
-                $table->string('name', 100);
-                $table->string('address', 255);
-                $table->float('latitude', 20, 18);
-                $table->float('longitude', 20, 18);
-                $table->double('rating', 2, 1);
-                $table->text('photo');
-                $table->text('description');
-                $table->unsignedBigInteger('categoryId');
-                $table->foreign('categoryId')->references('id')->on('category');
-                $table->timestamps();
-            });
-        }
+        Schema::create('restaurant', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 255);
+            $table->string('address', 255);
+            $table->float('latitude', 20, 18);
+            $table->float('longitude', 20, 18);
+            $table->double('rating', 2, 1);
+            $table->text('photo');
+            $table->text('description');
+            $table->unsignedBigInteger('categoryId');
+            $table->foreign('categoryId')->references('id')->on('category');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -37,6 +35,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('order');
         Schema::dropIfExists('restaurant');
     }
 };
