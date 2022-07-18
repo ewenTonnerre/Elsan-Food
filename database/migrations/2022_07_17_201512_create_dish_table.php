@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->text('photo');
             $table->text('description');
-            $table->double('price', 5, 2);
+            $table->unsignedDecimal('price', 5, 2);
             $table->unsignedBigInteger('restaurantId');
             $table->foreign('restaurantId')->references('id')->on('restaurant');
             $table->timestamps();

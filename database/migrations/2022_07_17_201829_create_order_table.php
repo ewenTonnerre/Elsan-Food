@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('order', function (Blueprint $table) {
             $table->id();
             $table->dateTime('date');
-            $table->double('amount',6,2);
+            $table->unsignedDecimal('amount',6,2);
             $table->unsignedBigInteger('restaurantId');
             $table->unsignedBigInteger('userId');
             $table->foreign('restaurantId')->references('id')->on('restaurant');

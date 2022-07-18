@@ -9,10 +9,14 @@ class OrderDish extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = ['orderId', 'dishId'];
+    public $incrementing = false;
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'order_dish';
+
 }
