@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->double('latitude', 20, 18);
                 $table->double('longitude', 20, 18);
                 $table->double('rating', 2, 1);
-                $table->string('photo', 255);
+                $table->text('photo');
                 $table->mediumText('description');
                 $table->unsignedBigInteger('categoryId');
                 $table->foreign('categoryId')->references('id')->on('category');
