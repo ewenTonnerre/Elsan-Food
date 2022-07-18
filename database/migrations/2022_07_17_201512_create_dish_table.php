@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->text('photo');
-            $table->mediumText('description');
+            $table->text('description');
             $table->double('price', 5, 2);
             $table->unsignedBigInteger('restaurantId');
             $table->foreign('restaurantId')->references('id')->on('restaurant');

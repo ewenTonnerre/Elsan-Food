@@ -22,7 +22,7 @@ return new class extends Migration
                 $table->double('longitude', 20, 18);
                 $table->double('rating', 2, 1);
                 $table->text('photo');
-                $table->mediumText('description');
+                $table->text('description');
                 $table->unsignedBigInteger('categoryId');
                 $table->foreign('categoryId')->references('id')->on('category');
                 $table->timestamps();
