@@ -40,7 +40,7 @@ class Restaurant extends Model
      */
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'categoryId', 'id');
     }
 
     /**
@@ -48,7 +48,7 @@ class Restaurant extends Model
      */
     public function dishes()
     {
-        return $this->hasMany(Dish::class);
+        return $this->hasMany(Dish::class, 'dishId', 'id');
     }
 
     /**
@@ -56,6 +56,6 @@ class Restaurant extends Model
      */
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class, 'orderId', 'id');
     }
 }
