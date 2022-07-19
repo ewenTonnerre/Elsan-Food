@@ -28,10 +28,19 @@ class Order extends Model
     /**
      * Get the list of dishes ordered.
      */
-    public function dishesOrdered()
+    public function dishes()
     {
-        return $this->hasMany(OrderDish::class);
+        return $this->belongsToMany(Dish::class)->as('subscription')->withPivot('quantity');
     }
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'date' => 'datetime:Y-m-d',
+    ];
 
     /**
      * The table associated with the model.

@@ -18,14 +18,6 @@ class Dish extends Model
     }
 
     /**
-     * Get the list of dishes ordered.
-     */
-    public function dishesOrdered()
-    {
-        return $this->hasMany(OrderDish::class);
-    }
-
-    /**
      * The table associated with the model.
      *
      * @var string

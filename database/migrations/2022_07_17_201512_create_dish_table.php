@@ -21,7 +21,6 @@ return new class extends Migration
             $table->unsignedDecimal('price', 5, 2);
             $table->unsignedBigInteger('restaurantId');
             $table->foreign('restaurantId')->references('id')->on('restaurant');
-            $table->timestamps();
         });
     }
 

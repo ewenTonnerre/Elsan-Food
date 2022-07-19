@@ -24,7 +24,6 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('categoryId');
             $table->foreign('categoryId')->references('id')->on('category');
-            $table->timestamps();
         });
     }
 
