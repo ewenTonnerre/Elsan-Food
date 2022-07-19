@@ -10,6 +10,28 @@ class Order extends Model
     use HasFactory;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'order';
+
+    public static $snakeAttributes = false;
+    public $timestamps = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'date' => 'datetime:Y-m-d',
+        'amount' => 'double',
+        'restaurantId' => 'int',
+        'userId' => 'int',
+    ];
+
+    /**
      * Get the restaurant of the order.
      */
     public function restaurant()
@@ -30,22 +52,6 @@ class Order extends Model
      */
     public function dishes()
     {
-        return $this->belongsToMany(Dish::class)->as('subscription')->withPivot('quantity');
+        return $this->belongsToMany(Dish::class, 'order_dish', 'orderId', 'dishId')->withPivot('quantity');
     }
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'date' => 'datetime:Y-m-d',
-    ];
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'order';
 }

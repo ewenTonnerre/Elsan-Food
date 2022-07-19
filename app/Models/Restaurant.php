@@ -10,6 +10,32 @@ class Restaurant extends Model
     use HasFactory;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'restaurant';
+
+    public static $snakeAttributes = false;
+    public $timestamps = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'name' => 'string',
+        'address' => 'string',
+        'latitude' => 'float',
+        'longitude' => 'float',
+        'rating' => 'double',
+        'photo' => 'string',
+        'description' => 'string',
+        'categoryId' => 'int',
+    ];
+
+    /**
      * Get the category of the restaurant.
      */
     public function category()
@@ -32,11 +58,4 @@ class Restaurant extends Model
     {
         return $this->hasMany(Order::class);
     }
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'restaurant';
 }
