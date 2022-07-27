@@ -13,14 +13,25 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * The table associated with the model.
      *
-     * @var array<int, string>
+     * @var string
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $table = 'user';
+
+    public static $snakeAttributes = false;
+    public $timestamps = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'lastname' => 'string',
+        'firstname' => 'string',
+        'email' => 'string',
+        'password' => 'string',
     ];
 
     /**
@@ -34,11 +45,21 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * Get the orders of the user.
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'orderId', 'id');
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
     ];
 }
