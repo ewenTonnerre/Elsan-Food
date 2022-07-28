@@ -13,8 +13,20 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased flex flex-row">
+        <div class="min-h-screen bg-orange-400 flex flex-col">
+            <h1 class="text-center my-2 text-4xl text-white px-10">ElsanFood</h1>
+            <h2 class="text-center my-2 text-m text-gray-200 px-10 pb-3">Administration</h2>
+            <hr class="bg-white w-full my-3">
+            <!-- Navigation Links -->
+            <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                {{ __('Accueil') }}
+            </x-nav-link>
+            <x-nav-link :href="route('admin')" :active="request()->routeIs('menu2')">
+                {{ __('Menu 2') }}
+            </x-nav-link>
+        </div>
+        <div class="min-h-screen bg-gray-100 flex-1">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

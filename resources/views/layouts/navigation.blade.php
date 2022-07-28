@@ -1,20 +1,12 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gray-200 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('admin') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600"></x-application-logo>
-                    </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
-                        {{ __('Accueil') }}
-                    </x-nav-link>
+                <div class="p-3 m-3 h-10 space-y-1 bg-orange-400 rounded shadow hover:bg-orange-500 hover:cursor-pointer">
+                    <span class="block w-6 h-0.5 bg-gray-100"></span>
+                    <span class="block w-6 h-0.5 bg-gray-100"></span>
+                    <span class="block w-6 h-0.5 bg-gray-100"></span>
                 </div>
             </div>
 
