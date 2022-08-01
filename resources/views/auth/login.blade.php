@@ -35,10 +35,6 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Se souvenir de moi') }}</span>
                 </label>
             </div>
-            <!-- Register -->
-            <div class="block mt-4 px-6">
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">S'inscrire</a>
-            </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
