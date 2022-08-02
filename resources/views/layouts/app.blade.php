@@ -27,7 +27,7 @@
     </x-nav-link>
 </div>
 <div class="min-h-screen bg-gray-100 flex-1">
-    @include('admin.layouts.navigation')
+    @include('layouts.navigation')
 
     <!-- Page Heading -->
     <header class="bg-white shadow">

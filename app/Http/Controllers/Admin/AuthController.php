@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        return view('admin.auth.login');
     }
 
     /**
@@ -43,7 +43,7 @@ class AuthController extends Controller
      */
     public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
+        Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
