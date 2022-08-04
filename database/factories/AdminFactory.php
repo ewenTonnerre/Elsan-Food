@@ -20,7 +20,7 @@ class AdminFactory extends Factory
             'lastname' => fake()->lastName(),
             'firstname' => fake()->firstName(),
             'email' => 'admin@elsan.com',
-            'password' => 'password',
+            'password' => '$2y$10$luhRFicA9qv9Yi/I3nlLHuh3ZSdEO3g8X7EsFt97HMQ3MzhBGfoai',
         ];
     }
 }

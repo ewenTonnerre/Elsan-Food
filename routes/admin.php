@@ -11,7 +11,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
-    Route::get('/', function () { return view('admin');})->name('admin');
+    Route::get('/', function () { return view('admin/admin');})->name('admin');
 });
 
 require __DIR__.'/auth.php';
