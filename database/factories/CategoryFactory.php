@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => 'Category ' . fake()->numberBetween(1,500),
-            'photo' => fake()->image,
+            'photo' => 'https://picsum.photos/200',
         ];
     }
 }

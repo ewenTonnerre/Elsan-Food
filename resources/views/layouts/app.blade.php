@@ -22,8 +22,8 @@
     <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
         {{ __('Accueil') }}
     </x-nav-link>
-    <x-nav-link :href="route('admin')" :active="request()->routeIs('menu2')">
-        {{ __('Menu 2') }}
+    <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
+        {{ __('Categories') }}
     </x-nav-link>
 </div>
 <div class="min-h-screen bg-gray-100 flex-1">

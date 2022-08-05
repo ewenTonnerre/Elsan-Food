@@ -3,6 +3,7 @@
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'create'])->name('login');
@@ -12,6 +13,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/', function () { return view('admin/admin');})->name('admin');
+    Route::get('/categories', [CategoryController::class, 'getCategories'])->name('categories');
 });
 
 require __DIR__.'/auth.php';
