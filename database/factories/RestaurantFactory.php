@@ -24,7 +24,7 @@ class RestaurantFactory extends Factory
             'rating' => fake()->randomFloat(2,0,5),
             'photo' => fake()->image,
             'description' => fake()->text,
-            'categoryId' => fake()->numberBetween(1,5)
+            'categoryId' => 1
         ];
     }
 }

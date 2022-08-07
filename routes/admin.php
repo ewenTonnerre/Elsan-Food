@@ -14,6 +14,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/', function () { return view('admin/admin');})->name('admin');
     Route::get('/categories', [CategoryController::class, 'getCategories'])->name('categories');
+    Route::get('/categories/add', [CategoryController::class, 'create'])->name('addCategory');
+    Route::post('/categories/add', [CategoryController::class, 'store'])->name('createCategory');
 });
 
 require __DIR__.'/auth.php';

@@ -68,5 +68,11 @@ php artisan db:seed
 php artisan make:command CommandName
 ```
 
+### Lier le dossier public du storage au dossier public de l'app.
+
+```
+php artisan storage:link
+```
+
 
 

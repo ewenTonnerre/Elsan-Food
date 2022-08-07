@@ -17,8 +17,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Category ' . fake()->numberBetween(1,500),
-            'photo' => 'https://picsum.photos/200',
+            'name' => 'Pâtes',
+            'photo' => 'images/default_category.jpg',
         ];
     }
 }
