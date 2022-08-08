@@ -18,8 +18,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/categories', 'getCategories')->name('categories');
         Route::get('/categories/add','create')->name('addCategory');
         Route::post('/categories/add', 'store')->name('createCategory');
-        Route::get('/categories/edit/{category}', ('edit'))->name('editCategory');
-        Route::post('/categories/edit/{category}', ('update'))->name('updateCategory');
+        Route::get('/categories/{category}', ('edit'))->name('editCategory');
+        Route::post('/categories/{category}', ('update'))->name('updateCategory');
+        Route::get('/categories/{categoryId}/delete', ('delete'))->name('deleteCategory');
     });
 });
 

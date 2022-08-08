@@ -4,6 +4,19 @@
             {{ __('Catégories') }}
         </h2>
     </x-slot>
+    @if ($errors->first() == "23000")
+        <div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert" id="alert">
+            <div class="flex justify-between items-center">
+                <div>
+                    <strong class="font-bold">Erreur lors de la suppression de la catégorie !</strong>
+                    <span class="block sm:inline">Il y a des restaurants qui sont ratachés à cette catégorie.</span>
+                </div>
+                <button class="bg-transparent text-2xl font-semibold leading-none right-0 top-0 mr-6 outline-none focus:outline-none" onclick="closeAlert(event)">
+                    <span>×</span>
+                </button>
+            </div>
+        </div>
+    @endif
     @if (session('status'))
         <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert" id="alert">
             <div class="flex justify-between items-center">
@@ -50,7 +63,7 @@
                                 </td>
                                 <td class="py-4 px-2 h-32 flex items-center">
                                     <a href="{{ URL::route('editCategory', ['category' => $category->id]) }}"><x-gmdi-edit class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
-                                    <a><x-gmdi-delete class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
+                                    <a href="{{ URL::route('deleteCategory', ['categoryId' => $category->id]) }}"><x-gmdi-delete class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
@@ -109,5 +110,17 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect('/admin/categories')->with('status', 'Catégorie enregistrée !');;
+    }
+
+    public function delete($category)
+    {
+        $category = Category::find($category);
+        try{
+            $category->delete();
+            Storage::delete($category->photo);
+        }catch (\Illuminate\Database\QueryException $e){
+            return Redirect::back()->withErrors($e->getCode());
+        }
+        return Redirect::back();
     }
 }
