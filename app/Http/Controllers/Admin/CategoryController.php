@@ -37,8 +37,6 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -62,6 +60,53 @@ class CategoryController extends Controller
                 'photo' => $path,
             ]);
         }
+
+        return redirect('/admin/categories')->with('status', 'Catégorie enregistrée !');;
+    }
+
+    /**
+     * Handle an incoming edit category request.
+     *
+     * @param  Category
+     * @return View
+     */
+    public function edit($category)
+    {
+        $category = Category::find($category);
+        return view('admin/editCategory', [
+            'category' => $category,
+        ]);
+    }
+
+    /**
+     * Handle an incoming add category request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $category)
+    {
+        $category = Category::find($category);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:category|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        if($request->file('photo')){
+            $filename = time() . '.' . $request->photo->extension();
+            $file = $request->file('photo');
+            $path = $file->storeAs('images', $filename, 'public');
+            $category->photo = $path;
+        }
+
+        $category->name = $request->name;
+        $category->save();
 
         return redirect('/admin/categories')->with('status', 'Catégorie enregistrée !');;
     }

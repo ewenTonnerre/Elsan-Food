@@ -49,8 +49,8 @@
                                     <img class="max-w-28 max-h-28" src="{{ Storage::url($category->photo) }}">
                                 </td>
                                 <td class="py-4 px-2 h-32 flex items-center">
-                                    <x-gmdi-edit class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/>
-                                    <x-gmdi-delete class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/>
+                                    <a href="{{ URL::route('editCategory', ['category' => $category->id]) }}"><x-gmdi-edit class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
+                                    <a><x-gmdi-delete class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
                                 </td>
                             </tr>
                         @endforeach

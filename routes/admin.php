@@ -13,9 +13,14 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/', function () { return view('admin/admin');})->name('admin');
-    Route::get('/categories', [CategoryController::class, 'getCategories'])->name('categories');
-    Route::get('/categories/add', [CategoryController::class, 'create'])->name('addCategory');
-    Route::post('/categories/add', [CategoryController::class, 'store'])->name('createCategory');
+
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('/categories', 'getCategories')->name('categories');
+        Route::get('/categories/add','create')->name('addCategory');
+        Route::post('/categories/add', 'store')->name('createCategory');
+        Route::get('/categories/edit/{category}', ('edit'))->name('editCategory');
+        Route::post('/categories/edit/{category}', ('update'))->name('updateCategory');
+    });
 });
 
 require __DIR__.'/auth.php';
