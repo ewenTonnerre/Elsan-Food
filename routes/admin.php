@@ -3,7 +3,7 @@
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CategoriesController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'create'])->name('login');
@@ -14,7 +14,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/', function () { return view('admin/admin');})->name('admin');
 
-    Route::controller(CategoryController::class)->group(function () {
+    Route::controller(CategoriesController::class)->group(function () {
         Route::get('/categories', 'getCategories')->name('categories');
         Route::get('/categories/add','create')->name('addCategory');
         Route::post('/categories/add', 'store')->name('createCategory');

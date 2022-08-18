@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
-class CategoryController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Give the categories list to the categories page.
