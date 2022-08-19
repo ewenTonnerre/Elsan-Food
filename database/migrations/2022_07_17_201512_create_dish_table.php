@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedDecimal('price', 5, 2);
             $table->unsignedBigInteger('restaurantId');
-            $table->foreign('restaurantId')->references('id')->on('restaurant');
+            $table->foreign('restaurantId')->references('id')->on('restaurant')->onDelete('cascade');
         });
     }
 

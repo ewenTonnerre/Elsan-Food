@@ -36,6 +36,22 @@ class Restaurant extends Model
     ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'address',
+        'latitude',
+        'longitude',
+        'rating',
+        'photo',
+        'description',
+        'categoryId',
+    ];
+
+    /**
      * Get the category of the restaurant.
      */
     public function category()

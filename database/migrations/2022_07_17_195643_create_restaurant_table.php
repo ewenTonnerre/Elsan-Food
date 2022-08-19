@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('address', 255);
             $table->float('latitude', 20, 18);
             $table->float('longitude', 20, 18);
-            $table->double('rating', 2, 1);
+            $table->double('rating', 2, 1)->default(0.0);
             $table->text('photo');
             $table->text('description');
             $table->unsignedBigInteger('categoryId');
-            $table->foreign('categoryId')->references('id')->on('category');
+            $table->foreign('categoryId')->references('id')->on('category')->onDelete('cascade');
         });
     }
 

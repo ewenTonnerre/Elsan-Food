@@ -24,7 +24,6 @@
                         </div>
                             <p> Image actuelle : </p>
                             <img class="max-w-28 max-h-28" src="{{Storage::url($category->photo) }}">
-                        </div>
                         <div id="actions" class="w-full flex justify-around mt-8">
                             <div class="w-36 bg-red-500 h-10 rounded text-white flex justify-center items-center"><a
                                     href="{{ URL::route('categories') }}" class="hover:cursor-pointer py-3 px-10">Annuler</a>

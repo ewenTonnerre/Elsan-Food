@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RestaurantsController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
@@ -21,6 +22,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/categories/{category}', ('edit'))->name('editCategory');
         Route::post('/categories/{category}', ('update'))->name('updateCategory');
         Route::get('/categories/{categoryId}/delete', ('delete'))->name('deleteCategory');
+    });
+
+    Route::controller(RestaurantsController::class)->group(function() {
+        Route::get('/restaurants', 'getRestaurants')->name('restaurants');
+        Route::get('/restaurants/add','create')->name('addRestaurant');
+        Route::post('/restaurants/add', 'store')->name('createRestaurant');
+        Route::get('/restaurants/{restaurant}', ('edit'))->name('editRestaurant');
+        Route::post('/restaurants/{restaurant}', ('update'))->name('updateRestaurant');
+        Route::get('/restaurants/{restaurantId}/delete', ('delete'))->name('deleteRestaurant');
     });
 });
 

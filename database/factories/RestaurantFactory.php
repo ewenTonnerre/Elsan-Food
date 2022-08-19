@@ -22,7 +22,7 @@ class RestaurantFactory extends Factory
             'latitude' => fake()->randomFloat(20, 0, 99),
             'longitude' => fake()->randomFloat(20,0, 99),
             'rating' => fake()->randomFloat(2,0,5),
-            'photo' => fake()->image,
+            'photo' => 'images/restaurant.jpg',
             'description' => fake()->text,
             'categoryId' => 1
         ];
