@@ -18,7 +18,7 @@ class DishFactory extends Factory
     {
         return [
             'name' => 'Dish Name',
-            'photo' => fake()->image,
+            'photo' => 'images/pasta.jpg',
             'description' => fake()->text,
             'price' => fake()->randomFloat(5,0, 999.99),
             'restaurantId' => fake()->numberBetween(1,10)

@@ -28,6 +28,19 @@ class Dish extends Model
     ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'photo',
+        'description',
+        'price',
+        'restaurantId'
+    ];
+
+    /**
      * Get the restaurant which made this dish.
      */
     public function restaurant()

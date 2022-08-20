@@ -121,6 +121,6 @@ class CategoriesController extends Controller
         }catch (\Illuminate\Database\QueryException $e){
             return Redirect::back()->withErrors($e->getCode());
         }
-        return Redirect::back();
+        return Redirect::back()->with('status', 'Catégorie supprimée !');
     }
 }

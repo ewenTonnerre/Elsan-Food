@@ -50,6 +50,7 @@
                                     <img class="max-w-28 max-h-28" src="{{ Storage::url($restaurant->photo) }}">
                                 </td>
                                 <td class="py-4 px-2 h-32 flex items-center">
+                                    <a href="{{ URL::route('dishes', ['restaurantId' => $restaurant->id]) }}"><x-healthicons-f-hot-meal class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
                                     <a href="{{ URL::route('editRestaurant', ['restaurant' => $restaurant->id]) }}"><x-gmdi-edit class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
                                     <a href="{{ URL::route('deleteRestaurant', ['restaurantId' => $restaurant->id]) }}"><x-gmdi-delete class="w-6 h-6 hover:text-orange-400 hover:cursor-pointer"/></a>
                                 </td>

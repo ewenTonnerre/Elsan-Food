@@ -80,7 +80,7 @@ class RestaurantsController extends Controller
     }
 
     /**
-     * Handle an incoming edit category request.
+     * Handle an incoming edit restaurant request.
      *
      * @param  Restaurant
      * @return View
@@ -147,9 +147,8 @@ class RestaurantsController extends Controller
             $restaurant->delete();
             Storage::delete($restaurant->photo);
         }catch (\Illuminate\Database\QueryException $e){
-            dd($e);
             return Redirect::back()->withErrors($e->getCode());
         }
-        return Redirect::back();
+        return Redirect::back()->with('status', 'Restaurant supprimé !');
     }
 }
