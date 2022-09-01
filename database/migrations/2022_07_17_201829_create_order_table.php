@@ -19,8 +19,8 @@ return new class extends Migration
             $table->unsignedDecimal('amount',6,2);
             $table->unsignedBigInteger('restaurantId');
             $table->unsignedBigInteger('userId');
-            $table->foreign('restaurantId')->references('id')->on('restaurant');
-            $table->foreign('userId')->references('id')->on('user');
+            $table->foreign('restaurantId')->references('id')->on('restaurant')->onDelete('cascade');
+            $table->foreign('userId')->references('id')->on('user')->onDelete('cascade');
         });
     }
 

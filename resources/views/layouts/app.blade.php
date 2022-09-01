@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased flex flex-row">
-<div class="min-h-screen bg-orange-400 flex flex-col">
+<div class="min-h-screen bg-orange-400 flex flex-col fixed">
     <h1 class="text-center my-2 text-4xl text-white px-10">ElsanFood</h1>
     <h2 class="text-center my-2 text-m text-gray-200 px-10 pb-3">Administration</h2>
     <hr class="bg-white w-full my-3">
@@ -25,8 +25,11 @@
     <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
         {{ __('Categories') }}
     </x-nav-link>
+    <x-nav-link :href="route('restaurants')" :active="request()->routeIs('restaurants')">
+        {{ __('Restaurants') }}
+    </x-nav-link>
 </div>
-<div class="min-h-screen bg-gray-100 flex-1">
+<div class="min-h-screen bg-gray-100 flex-1 ml-60">
     @include('layouts.navigation')
 
     <!-- Page Heading -->

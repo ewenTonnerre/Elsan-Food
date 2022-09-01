@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->unsignedBigInteger('orderId');
             $table->unsignedBigInteger('dishId');
-            $table->foreign('orderId')->references('id')->on('order');
-            $table->foreign('dishId')->references('id')->on('dish');
+            $table->foreign('orderId')->references('id')->on('order')->onDelete('cascade');
+            $table->foreign('dishId')->references('id')->on('dish')->onDelete('cascade');
             $table->primary(array('orderId', 'dishId'));
         });
     }
