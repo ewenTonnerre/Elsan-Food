@@ -20,7 +20,7 @@ class OrderFactory extends Factory
             'date' => fake()->dateTime,
             'amount' => fake()->randomFloat(6, 0, 1100),
             'restaurantId' => fake()->numberBetween(1,10),
-            'userId' => fake()->numberBetween(1,5),
+            'userId' => 1,
         ];
     }
 }

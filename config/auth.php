@@ -38,11 +38,16 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'user',
         ],
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
+        ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            'hash' => true,
         ],
     ],
 

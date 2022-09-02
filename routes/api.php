@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
+
+
+// auth:api middleware automatically validate API tokens on incoming requests
+Route::middleware('auth:api')->get('/user', function(Request $request) {
     return $request->user();
 });
